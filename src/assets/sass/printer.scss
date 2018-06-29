@@ -1,0 +1,57 @@
+#printer {
+    overflow: auto;
+    text-align: justify;
+    flex: 1;
+    padding-right: 10px;
+    margin-bottom: 8px;
+    padding-top: 10px;
+
+    ul {
+        li {
+            display: flex;
+            line-height: 20px;
+
+            span:first-child {
+                color: $textUsername;
+                margin-right: 10px;
+            }
+                
+            &::before {
+                font-family: FontAwesome;
+                content: "\f0da";
+                display: inline-block;
+                width: 10px;
+                padding-right: 3px;
+            }
+        }
+
+        li.cmd {
+            color: $textCommand;
+
+            &::before {
+                font-family: FontAwesome;
+                content: "\f101";
+            }
+        }
+
+        li.success {
+            color: $textSuccess;
+
+            &::before {
+                font-family: FontAwesome;
+                content: "\f00c";
+                font-size: 11px;
+            }
+        }
+
+        li.error {
+            color: $textError;
+
+            &::before {
+                font-family: FontAwesome;
+                content: "\f00d";
+                font-size: 11px;
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+@import 'reset-css';
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+
+@import './variables';
+@import './printer';
+@import './command-line';
+@import './sidebar';
+
+html {
+    min-height: 100vh;
+    background: $bg;
+    color: $text;
+    font-family: $font;
+}
+
+#app {
+    height: 100vh;
+    max-height: 100vh;
+
+    display: grid;
+    grid-template-rows: auto 60px;
+
+    #main {
+        display: flex;
+        overflow: hidden;
+    }
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 10px $bg;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background: darken($bg, 4%);
+}

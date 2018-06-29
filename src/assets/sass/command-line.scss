@@ -1,0 +1,46 @@
+#commandLine {
+    padding: 5px;
+    background: $bgInput;
+    display: flex;
+
+    form {
+        display: flex;
+        flex: 1;
+
+        span {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        input {
+            flex: 1;
+            padding: 4px 8px;
+            margin-right: 4px;
+            margin-left: 4px;
+            background: darken($bgInput, 2%);
+            border: none;
+            color: lighten($text, 8%);
+            font-size: 24px;
+            outline: none;
+            font-family: $font;
+            
+            &::placeholder {
+                color: darken($text, 10%);
+            }
+
+            &:focus {
+                background: darken($bgInput, 4%);
+            }
+        }
+
+        button {
+            font-size: 24px;
+            color: $text;
+            background: none;
+            border: none;
+            outline: none;
+            font-family: $font;
+        }
+    }
+}
