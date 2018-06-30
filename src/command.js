@@ -25,6 +25,12 @@ const Commands = {
             parameters: ['money', 'amount'],
             description: `Convert between EUR and BTC`,
             syntax: `convert [eur|btc] [amount]`
+        },
+        scan: {
+            buyable: false,
+            parameters: [],
+            description: `Scan for all the network around you`,
+            syntax: `the scan command don't need any parameters`
         }
     },
     error: false,

@@ -19,6 +19,7 @@ const vuex = new Vuex.Store({
             btc: 100,
             rate: 0.8
         },
+        networks: [],
         modules: [],
         commands: Command.commands,
         availableCommands: ['login'],

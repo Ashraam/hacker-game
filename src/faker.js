@@ -1,20 +1,20 @@
 const faker = require('faker')
 
 const Faker = {
-    domain() {
-        return faker.internet.domainName();
-    },
+    networks() {
+        const networks = [];
+        let i = faker.random.number(8);
+        if(i < 4) i = 4;
 
-    username() {
-        return faker.internet.userName();
-    },
+        for(let n=0; n<i; n++) {
+            networks.push({
+                domain: faker.internet.domainWord(),
+                ip: faker.internet.ip(),
+                username: faker.internet.userName()
+            });
+        }
 
-    mac() {
-        return faker.internet.mac();
-    },
-
-    ip() {
-        return faker.internet.ip();
+        return networks;
     }
 }
 
