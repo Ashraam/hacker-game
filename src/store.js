@@ -12,8 +12,18 @@ Vue.use(Vuex);
 const vuex = new Vuex.Store({
     state: {
         sidebarOpened: false,
-        logged: false,
-        username: '',
+        user: {
+            isLogged: false,
+            isDistant: false,
+            local: {
+                name: 'Guest',
+                host: 'localhost'
+            },
+            distant: {
+                name: 'Root',
+                host: 'distant'
+            }
+        },
         balance: {
             eur: 100,
             btc: 100,

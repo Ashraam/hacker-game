@@ -1,18 +1,17 @@
+import Output from '../output'
+
 export default (state) => {
-    let output = `Here are all the available commands:<br />`;
+    let msg = `Here are all the available commands:<br />`;
 
     state.availableCommands.forEach((cmd) => {
         if (state.commands[cmd]) {
-            output += `<u>${cmd}</u>: ${state.commands[cmd].description}`;
+            msg += `<u>${cmd}</u>: ${state.commands[cmd].description}`;
             if (state.commands[cmd].parameters.length > 0) {
-                output += ` (syntax: ${state.commands[cmd].syntax})`
+                msg += ` (syntax: ${state.commands[cmd].syntax})`
             }
-            output += `<br />`;
+            msg += `<br />`;
         }
     });
 
-    state.logs.push({
-        output: output,
-        type: 'output'
-    });
+    state.logs.push(Output.simple(state.user, msg));
 }

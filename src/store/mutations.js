@@ -1,7 +1,4 @@
-import printCommand from '../commands/PrintCommand'
-import printError from '../commands/PrintError'
-import printSuccess from '../commands/PrintSuccess'
-import printOutput from '../commands/PrintOutput'
+import print from '../commands/Print'
 import login from '../commands/Login'
 import help from '../commands/Help'
 import balance from '../commands/Balance'
@@ -9,11 +6,7 @@ import convert from '../commands/Convert'
 import scan from '../commands/Scan'
 
 export default {
-    printCommand,
-    printError,
-    printSuccess,
-    printOutput,
-    
+    print,
     login,
     help,
     balance,

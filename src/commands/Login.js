@@ -1,4 +1,5 @@
 import Command from '../command'
+import Output from '../output'
 
 const commandsAfterLoading = [];
 Object.keys(Command.commands).forEach(cmd => {
@@ -9,19 +10,13 @@ export default (state, payload) => {
     let name = payload[0];
 
     if (name.length < 3 || name.length > 10) {
-        state.logs.push({
-            output: `The username length must be between 3 and 10 characters`,
-            type: 'error'
-        });
+        state.logs.push(Output.error(state.user, `The username length must be between 3 and 10 characters`));
         return false;
     }
 
-    state.username = name;
-    state.logged = true;
+    state.user.local.name = name;
+    state.user.isLogged = true;
     state.availableCommands = commandsAfterLoading;
 
-    state.logs.push({
-        output: `Welcome, you are now logged in as ${name}`,
-        type: 'success'
-    });
+    state.logs.push(Output.success(state.user, `Welcome, you are now logged in as ${name}`));
 }

@@ -1,31 +1,24 @@
+import Output from '../output'
+
 export default (state, payload) => {
     let moneyFrom = payload[0].toLowerCase();
     let moneyTo = (moneyFrom === 'eur') ? 'btc' : 'eur';
     let value = payload[1];
 
     if (!['eur', 'btc'].includes(moneyFrom)) {
-        state.logs.push({
-            output: `The money must be 'eur' or 'btc'`,
-            type: 'error'
-        });
+        state.logs.push(Output.error(state.user, `The money must be 'eur' or 'btc'`));
         return false;
     }
 
     if (!/^\d+(\.\d+)?$/.test(value)) {
-        state.logs.push({
-            output: `The value must be a valid integer or float number`,
-            type: 'error'
-        });
+        state.logs.push(Output.error(state.user, `The value must be a valid integer or float number`));
         return false;
     }
 
     let base = parseFloat((moneyFrom === 'eur') ? state.balance.eur : state.balance.btc);
 
     if (value > base) {
-        state.logs.push({
-            output: `You don't have enough ${(moneyFrom === 'eur') ? 'euros' : 'bitcoins'}`,
-            type: 'error'
-        });
+        state.logs.push(Output.error(state.user, `You don't have enough ${(moneyFrom === 'eur') ? 'euros' : 'bitcoins'}`));
         return false;
     }
 
@@ -35,8 +28,5 @@ export default (state, payload) => {
     state.balance[moneyFrom] -= parseFloat(value);
     state.balance[moneyTo] += parseFloat(change);
 
-    state.logs.push({
-        output: `You have converted ${value} ${(moneyFrom === 'eur') ? 'euros' : 'bitcoins'} for ${change} ${(moneyFrom === 'eur') ? 'bitcoins' : 'euros'} (Change rate: ${rate})`,
-        type: 'success'
-    });
+    state.logs.push(Output.success(state.user, `You have converted ${value} ${(moneyFrom === 'eur') ? 'euros' : 'bitcoins'} for ${change} ${(moneyFrom === 'eur') ? 'bitcoins' : 'euros'} (Change rate: ${rate})`));
 }

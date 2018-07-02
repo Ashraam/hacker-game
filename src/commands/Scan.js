@@ -1,4 +1,5 @@
 import Faker from '../faker'
+import Output from '../output'
 
 export default (state) => {
     if(state.networks.length > 0) {
@@ -12,13 +13,10 @@ export default (state) => {
     const networks = Faker.networks();
 
     state.networks = networks;
-    let output = `Here are all the networks around you (You can refresh that list using the 'rescan' command)<br />`;
+    let message = `Here are all the networks around you (You can refresh that list using the 'rescan' command)<br />`;
     networks.forEach(nw => {
-        output += `${nw.username} (${nw.ip})<br />`; 
+        message += `${nw.username} (${nw.ip})<br />`; 
     });
 
-    state.logs.push({
-        type: 'output',
-        output: output
-    });
+    state.logs.push(Output.simple(state.user, message));
 }
