@@ -11,6 +11,9 @@ export default {
         }
 
         commit('print', Output.command(state.user, cmd));
+        if(Command.name !== "login") {
+            commit('history', cmd);
+        }
         commit(Command.name, Command.params);
     }
 }
