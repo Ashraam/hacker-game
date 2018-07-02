@@ -29,7 +29,7 @@ const Commands = {
         scan: {
             buyable: false,
             parameters: [],
-            description: `Scan for all the network around you`,
+            description: `Scan for all the networks around you`,
             syntax: `the scan command don't need any parameters`
         }
     },

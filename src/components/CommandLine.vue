@@ -2,8 +2,8 @@
     <div id="commandLine">
         <form @submit.prevent="exec">
             <span><i class="fa fa-chevron-right"></i></span>
-            <input type="text" v-model.trim="command" @blur="historyIndex = -1" @keyup="history" placeholder="Enter your command here (type help if stuck)" ref="input">
-            <button type="submit">Exec</button>
+            <input type="text" v-model.trim="command" @blur="historyIndex = -1" @keyup="history" placeholder="Enter your command here (type help if stuck)" ref="input" :disabled="loading">
+            <button type="submit" :disabled="loading">Exec</button>
         </form>
     </div>
 </template>
@@ -18,6 +18,10 @@ export default {
     },
 
     computed: {
+        loading() {
+            return this.$store.state.loading;
+        },
+
         commandHistory() {
             return this.$store.state.history;
         }

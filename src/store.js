@@ -11,6 +11,7 @@ Vue.use(Vuex);
 
 const vuex = new Vuex.Store({
     state: {
+        loading: false,
         sidebarOpened: false,
         user: {
             isLogged: false,
