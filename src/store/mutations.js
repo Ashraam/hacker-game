@@ -5,6 +5,7 @@ import help from '../commands/Help'
 import balance from '../commands/Balance'
 import convert from '../commands/Convert'
 import scan from '../commands/Scan'
+import connect from '../commands/Connect'
 
 export default {
     print,
@@ -13,5 +14,6 @@ export default {
     help,
     balance,
     convert,
-    scan
+    scan,
+    connect
 }

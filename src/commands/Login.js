@@ -1,9 +1,9 @@
 import Command from '../command'
 import Output from '../output'
 
-const commandsAfterLoading = [];
+const availableCommands = [];
 Object.keys(Command.commands).forEach(cmd => {
-    if (!Command.commands[cmd].buyable) commandsAfterLoading.push(cmd);
+    if (!Command.commands[cmd].buyable && Command.commands[cmd].scope.includes('local')) availableCommands.push(cmd);
 });
 
 function simulateLoading(time) {
@@ -27,7 +27,7 @@ export default async (state, payload) => {
 
     state.user.local.name = name;
     state.user.isLogged = true;
-    state.availableCommands = commandsAfterLoading;
+    state.availableCommands = availableCommands;
     state.loading = false;
 
     state.logs.push(Output.success(state.user, `Welcome, you are now logged in as ${name}`));

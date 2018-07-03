@@ -3,7 +3,7 @@ import Output from '../output'
 
 export default {
     executeCommand({ commit, state }, cmd) {
-        Command.init(cmd, state.availableCommands, state.user.isLogged);
+        Command.init(cmd, state.availableCommands, state.user);
 
         if (Command.error) {
             commit('print', Output.error(state.user, Command.output));
