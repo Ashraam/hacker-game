@@ -13,6 +13,7 @@ const vuex = new Vuex.Store({
     state: {
         loading: false,
         sidebarOpened: false,
+        prompt: null,
         user: {
             isLogged: false,
             isDistant: false,

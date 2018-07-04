@@ -1,4 +1,5 @@
 import Output from '../output'
+import Prompt from '../prompt'
 
 export default (state, params) => {
     let server = state.networks.filter(s => s.ip == params[0])[0];
@@ -9,6 +10,7 @@ export default (state, params) => {
     }
 
     if(!server.hacked && server.security > 0) {
+        state.prompt = new Prompt('serverConnect', server);
         state.logs.push(Output.simple(state.user, `A password is required to connect to ${server.ip}, please enter the password:`));
         return false;
     }
