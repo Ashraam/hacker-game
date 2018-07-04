@@ -6,6 +6,7 @@ import balance from '../commands/Balance'
 import convert from '../commands/Convert'
 import scan from '../commands/Scan'
 import connect from '../commands/Connect'
+import exit from '../commands/Exit'
 
 export default {
     print,
@@ -15,5 +16,6 @@ export default {
     balance,
     convert,
     scan,
-    connect
+    connect,
+    exit
 }

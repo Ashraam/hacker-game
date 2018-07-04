@@ -36,7 +36,7 @@ const Commands = {
 
         if(this.commands[cmd].parameters.length != params.length) {
             this.error = true;
-            this.output = `Syntax error: ${this.commands[cmd].syntax}`;
+            this.output = `Syntax error: ${this.commands[cmd].syntax || `This command don't need any parameter`}`;
             return false;
         }
 

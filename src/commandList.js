@@ -4,7 +4,7 @@ export default {
         scope: ['local', 'distant'],
         parameters: [],
         description: `Show the available commands`,
-        syntax: `the help command don't need any parameters`
+        syntax: null
     },
     login: {
         buyable: false,
@@ -18,7 +18,7 @@ export default {
         scope: ['local'],
         parameters: [],
         description: `Display your current balances (EUR, BTC, Change rate)`,
-        syntax: `the help command don't need any parameters`
+        syntax: null
     },
     convert: {
         buyable: false,
@@ -32,7 +32,7 @@ export default {
         scope: ['local'],
         parameters: [],
         description: `Scan for all the networks around you`,
-        syntax: `the scan command don't need any parameters`
+        syntax: null
     },
     connect: {
         buyable: false,
@@ -40,5 +40,12 @@ export default {
         parameters: ['ip'],
         description: `Connect to a remote network`,
         syntax: `connect [ip]`
-    }
+    },
+    exit: {
+        buyable: false,
+        scope: ['distant'],
+        parameters: [],
+        description: `Exit to a remote network`,
+        syntax: null
+    },
 }
